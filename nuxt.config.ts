@@ -1,47 +1,58 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  extends: ['@nuxt/ui-pro'],
+  extends: ["@nuxt/ui-pro"],
 
   modules: [
-    '@nuxt/eslint',
-    '@nuxt/fonts',
-    '@nuxt/ui',
-    '@vueuse/nuxt'
+    "@nuxt/eslint",
+    "@nuxt/fonts",
+    "@nuxt/ui",
+    "@vueuse/nuxt",
+    "@nuxtjs/supabase",
   ],
 
-  ui: {
-    safelistColors: ['primary', 'red', 'orange', 'green']
+  devtools: {
+    enabled: true,
   },
 
   colorMode: {
-    disableTransition: true
+    disableTransition: true,
+  },
+
+  ui: {
+    safelistColors: ["primary", "red", "orange", "green"],
   },
 
   routeRules: {
     // Temporary workaround for prerender regression. see https://github.com/nuxt/nuxt/issues/27490
-    '/': { prerender: true }
-  },
-
-  devtools: {
-    enabled: true
-  },
-
-  typescript: {
-    strict: false
+    "/": { prerender: true },
   },
 
   future: {
-    compatibilityVersion: 4
+    compatibilityVersion: 4,
+  },
+
+  compatibilityDate: "2024-07-11",
+
+  typescript: {
+    strict: false,
   },
 
   eslint: {
     config: {
       stylistic: {
-        commaDangle: 'never',
-        braceStyle: '1tbs'
-      }
-    }
+        commaDangle: "never",
+        braceStyle: "1tbs",
+      },
+    },
   },
 
-  compatibilityDate: '2024-07-11'
-})
+  supabase: {
+    redirectOptions: {
+      login: "/login",
+      callback: "/confirm",
+      include: undefined,
+      exclude: ["/", "/*"],
+      cookieRedirect: false,
+    },
+  },
+});

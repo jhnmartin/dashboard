@@ -1,11 +1,11 @@
 export default defineAppConfig({
   ui: {
-    primary: 'sky',
-    gray: 'cool',
+    primary: "red",
+    gray: "zinc",
     tooltip: {
       default: {
-        openDelay: 500
-      }
-    }
-  }
-})
+        openDelay: 500,
+      },
+    },
+  },
+});
